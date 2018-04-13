@@ -19,7 +19,10 @@ RUN apt-get update && apt-get -y install \
   libpng-dev \
   libsqlite3-dev \
   cmake \
+  ninja-build \
   clang \
+  nodejs \
+  npm \
   libxi-dev \
   libglu1-mesa-dev \
   x11proto-randr-dev \
@@ -30,11 +33,13 @@ RUN apt-get update && apt-get -y install \
   libxcursor-dev \
   libxinerama-dev
 
-#RUN mkdir -p /opt/src/mbgl-c
-ADD . /opt/src/mbgl-c
+RUN curl -o /tmp/go.tar.gz https://storage.googleapis.com/golang/go1.10.1.linux-amd64.tar.gz
+RUN tar -xf /tmp/go.tar.gz -C /usr/local/bin
+ENV GOPATH=/opt/
+RUN mkdir -p /opt/src/github.com/mapbox
+RUN git -C /opt/src/github.com/mapbox clone https://github.com/mapbox/mapbox-gl-native.git
+RUN cd /opt/src/github.com/mapbox/mapbox-gl-native && make linux-core
 
-RUN git -C /opt/src clone https://github.com/mapbox/mapbox-gl-native.git
-RUN cd /opt/src/mapbox-gl-native && make linux-core
-
-RUN cd /opt/src/mbgl-c && make
+ADD . /opt/src/github.com/go-spatial/mbgl-c
+#RUN cd /opt/src/github.com/go-spatial/mbgl-c && make
 

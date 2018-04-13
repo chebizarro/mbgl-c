@@ -54,9 +54,6 @@ mason_use(vector-tile VERSION 1.0.1 HEADER_ONLY)
 
 add_definitions(-DRAPIDJSON_HAS_STDSTRING=1)
 
-add_definitions(-I/home/bizarro/Documents/Projects/ThirdParty/mapbox-gl-native/include)
-add_definitions(-I/home/bizarro/Documents/Projects/ThirdParty/mapbox-gl-native/platform/default)
-
 set(CMAKE_CONFIGURATION_TYPES Debug Release RelWithDebugInfo Sanitize)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -ftemplate-depth=1024 -fPIC -fvisibility=hidden -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Werror -Wno-variadic-macros -Wno-unknown-pragmas")
