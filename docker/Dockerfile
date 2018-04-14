@@ -40,6 +40,8 @@ RUN mkdir -p /opt/src/github.com/mapbox
 RUN git -C /opt/src/github.com/mapbox clone https://github.com/mapbox/mapbox-gl-native.git
 RUN cd /opt/src/github.com/mapbox/mapbox-gl-native && make linux-core
 
+ENV CFLAGS="-I/opt/src/github.com/mapbox/mapbox-gl-native/include -I/opt/src/github.com/mapbox/mapbox-gl-native/platform/default"
+
 ADD . /opt/src/github.com/go-spatial/mbgl-c
-#RUN cd /opt/src/github.com/go-spatial/mbgl-c && make
+RUN cd /opt/src/github.com/go-spatial/mbgl-c && make
 

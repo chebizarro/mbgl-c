@@ -56,6 +56,9 @@ add_definitions(-DRAPIDJSON_HAS_STDSTRING=1)
 
 set(CMAKE_CONFIGURATION_TYPES Debug Release RelWithDebugInfo Sanitize)
 
+add_definitions(-I/opt/src/github.com/mapbox/mapbox-gl-native/include)
+add_definitions(-I/opt/src/github.com/mapbox/mapbox-gl-native/platform/default)
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -ftemplate-depth=1024 -fPIC -fvisibility=hidden -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Werror -Wno-variadic-macros -Wno-unknown-pragmas")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -fvisibility=hidden -Wall -Wextra -Wshadow -Werror -Wno-variadic-macros -Wno-unknown-pragmas")
 if(APPLE AND CMAKE_CXX_COMPILER_ID MATCHES ".*Clang")
