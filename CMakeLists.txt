@@ -8,16 +8,15 @@ option(WITH_OSMESA   "Use OSMesa headless backend" OFF)
 option(WITH_EGL      "Use EGL backend" OFF)
 
 include(cmake/mason.cmake)
-include(cmake/config.cmake)
 
 if(WITH_CXX11ABI)
     set(MASON_CXXABI_SUFFIX -cxx11abi)
     if(CMAKE_COMPILER_IS_GNUCXX)
-        add_definitions(-D_GLIBCXX_USE_CXX11_ABI=1)
+        #add_definitions(-D_GLIBCXX_USE_CXX11_ABI=1)
     endif()
 else()
     if(CMAKE_COMPILER_IS_GNUCXX)
-        add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
+       # add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
     endif()
 endif()
 
@@ -53,11 +52,12 @@ mason_use(cheap-ruler VERSION 2.5.3 HEADER_ONLY)
 mason_use(vector-tile VERSION 1.0.1 HEADER_ONLY)
 
 add_definitions(-DRAPIDJSON_HAS_STDSTRING=1)
+add_definitions(-D_GLIBCXX_USE_CXX11_ABI=1)
 
 set(CMAKE_CONFIGURATION_TYPES Debug Release RelWithDebugInfo Sanitize)
 
-add_definitions(-I/opt/src/github.com/mapbox/mapbox-gl-native/include)
-add_definitions(-I/opt/src/github.com/mapbox/mapbox-gl-native/platform/default)
+add_definitions(-I/home/bizarro/Documents/Projects/ThirdParty/mapbox-gl-native/include)
+add_definitions(-I/home/bizarro/Documents/Projects/ThirdParty/mapbox-gl-native/platform/default)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -ftemplate-depth=1024 -fPIC -fvisibility=hidden -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Werror -Wno-variadic-macros -Wno-unknown-pragmas")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -fvisibility=hidden -Wall -Wextra -Wshadow -Werror -Wno-variadic-macros -Wno-unknown-pragmas")
@@ -89,6 +89,8 @@ else()
     message(STATUS "Can't find ccache — consider installing ccache to improve recompilation performance")
 endif()
 
+include(cmake/config.cmake)
 include(cmake/files.cmake)
 include(cmake/libmbglc.cmake)
+include(cmake/renderer.cmake)
 

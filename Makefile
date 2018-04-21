@@ -76,6 +76,10 @@ $(LINUX_BUILD): $(BUILD_DEPS)
 mbgl-c: $(LINUX_BUILD)
 	$(NINJA) $(NINJA_ARGS) -j$(JOBS) -C $(LINUX_OUTPUT_PATH) mbgl-c
 
+.PHONY: mbgl-render
+mbgl-render: $(LINUX_BUILD)
+	$(NINJA) $(NINJA_ARGS) -j$(JOBS) -C $(LINUX_OUTPUT_PATH) mbgl-render
+
 endif
 
 

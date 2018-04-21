@@ -2,6 +2,7 @@
 #define __MAP_H
 
 #include <mbgl-c/map/mode.h>
+#include <mbgl-c/map/map_observer.h>
 #include <mbgl-c/util/size.h>
 #include <mbgl-c/util/geo.h>
 #include <mbgl-c/storage/file_source.h>
@@ -16,7 +17,6 @@ struct MbglMap;
 typedef struct MbglMap MbglMap;
 
 typedef void MbglRendererFrontend;
-typedef void MbglMapObserver;
 
 MbglMap* mbgl_map_new(
 	MbglRendererFrontend* renderer,

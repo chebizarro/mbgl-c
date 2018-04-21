@@ -10,7 +10,7 @@ mason_use(icu VERSION 58.1-min-size)
 mason_use(args VERSION 6.2.0 HEADER_ONLY)
 
 
-macro(mbgl_platform_render)
+macro(mbgl_c)
     target_link_libraries(mbgl-c
         PRIVATE mbgl-filesource
         PRIVATE mbgl-loop-uv

@@ -11,7 +11,9 @@ set(MBGLC_CORE_FILES
     include/mbgl-c/map/map_observer.h
     include/mbgl-c/gl/headless_frontend.h
     include/mbgl-c/storage/online_file_source.h
+    include/mbgl-c/storage/default_file_source.h
     include/mbgl-c/util/default_thread_pool.h
+    include/mbgl-c/util/run_loop.h
 
     src/mbgl-c/map/map.cpp
     src/mbgl-c/util/geo.cpp
@@ -21,6 +23,8 @@ set(MBGLC_CORE_FILES
     src/mbgl-c/map/map_observer.cpp
     src/mbgl-c/gl/headless_frontend.cpp
     src/mbgl-c/storage/online_file_source.cpp
+    src/mbgl-c/storage/default_file_source.cpp
     src/mbgl-c/util/default_thread_pool.cpp
+    src/mbgl-c/util/run_loop.cpp
 
 )

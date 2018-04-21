@@ -11,7 +11,7 @@ MbglHeadlessFrontend* mbgl_headless_frontend_new(
 	float pixelRatio,
 	MbglFileSource* fileSource,
 	MbglScheduler* scheduler) {
-	
+		
 	return reinterpret_cast<MbglHeadlessFrontend*>(
 		new HeadlessFrontend(
 			{size.width, size.height},
@@ -20,7 +20,6 @@ MbglHeadlessFrontend* mbgl_headless_frontend_new(
 			reinterpret_cast<Scheduler&>(scheduler)
 		)
 	);
-
 }
 
 void mbgl_headless_frontend_destroy(MbglHeadlessFrontend* self) {

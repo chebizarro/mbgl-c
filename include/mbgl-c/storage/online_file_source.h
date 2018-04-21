@@ -9,6 +9,9 @@ struct MbglOnlineFileSource;
 typedef struct MbglOnlineFileSource MbglOnlineFileSource;
 
 MbglOnlineFileSource* mbgl_online_file_source_new();
+
+void mbgl_online_file_source_set_api_base_url(MbglOnlineFileSource* self, const char* url);
+
 void mbgl_online_file_source_destroy(MbglOnlineFileSource* self);
 
 #ifdef __cplusplus

@@ -1,7 +1,7 @@
 #ifndef __SIZE_H
 #define __SIZE_H
 
-#include <cstdint>
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C"{
