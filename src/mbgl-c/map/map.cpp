@@ -2,6 +2,8 @@
 #include <mbgl/map/map.hpp>
 #include <mbgl/style/style.hpp>
 #include <mbgl/util/geometry.hpp>
+#include <mbgl/gl/headless_frontend.hpp>
+#include <mbgl-c/map/map_observer.h>
 
 using namespace mbgl;
 
@@ -22,8 +24,39 @@ MbglMap* mbgl_map_new(
 
 	return reinterpret_cast<MbglMap*>(
 		new Map(
-			reinterpret_cast<RendererFrontend&>(renderer),
-			reinterpret_cast<MapObserver&>(observer),
+			reinterpret_cast<RendererFrontend&>(*renderer),
+			reinterpret_cast<MapObserver&>(*observer),
+			{size.width, size.height},
+			pixelRatio,
+			reinterpret_cast<FileSource&>(*source),
+			reinterpret_cast<Scheduler&>(*scheduler),
+			static_cast<MapMode>(mapMode),
+			static_cast<ConstrainMode>(constrainMode),
+			static_cast<ViewportMode>(viewportMode))
+		);
+}
+
+MbglMap* mbgl_map_new_headless(
+	MbglSize size,
+	float pixelRatio,
+	MbglFileSource* source,
+	MbglScheduler* scheduler,
+	MbglMapMode mapMode,
+	MbglConstrainMode constrainMode,
+	MbglViewportMode viewportMode) {
+	
+	HeadlessFrontend* frontend = new HeadlessFrontend(
+		{size.width, size.height},
+		pixelRatio,
+		reinterpret_cast<FileSource&>(source),
+		reinterpret_cast<Scheduler&>(scheduler)
+	);
+	
+	return reinterpret_cast<MbglMap*>(
+		new Map(
+			*frontend,
+			//MapObserver::nullObserver(),
+			reinterpret_cast<MapObserver&>(*mbgl_map_observer_null_observer()),
 			{size.width, size.height},
 			pixelRatio,
 			reinterpret_cast<FileSource&>(source),
@@ -31,7 +64,7 @@ MbglMap* mbgl_map_new(
 			static_cast<MapMode>(mapMode),
 			static_cast<ConstrainMode>(constrainMode),
 			static_cast<ViewportMode>(viewportMode))
-		);
+	);	
 }
 
 void mbgl_map_destroy(MbglMap* self) {

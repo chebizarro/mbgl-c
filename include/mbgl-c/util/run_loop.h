@@ -10,6 +10,8 @@ typedef struct MbglRunLoop MbglRunLoop;
 
 MbglRunLoop* mbgl_run_loop_new();
 
+void mbgl_run_loop_destroy(MbglRunLoop* self);
+
 #ifdef __cplusplus
 }
 #endif

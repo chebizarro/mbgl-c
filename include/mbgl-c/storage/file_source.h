@@ -5,7 +5,8 @@
 extern "C"{
 #endif
 
-typedef void MbglFileSource;
+struct MbglFileSource;
+typedef struct MbglFileSource MbglFileSource;
 
 #ifdef __cplusplus
 }

@@ -3,6 +3,7 @@
 
 #include <mbgl-c/map/mode.h>
 #include <mbgl-c/map/map_observer.h>
+#include <mbgl-c/gl/headless_frontend.h>
 #include <mbgl-c/util/size.h>
 #include <mbgl-c/util/geo.h>
 #include <mbgl-c/storage/file_source.h>
@@ -16,8 +17,6 @@ extern "C"{
 struct MbglMap;
 typedef struct MbglMap MbglMap;
 
-typedef void MbglRendererFrontend;
-
 MbglMap* mbgl_map_new(
 	MbglRendererFrontend* renderer,
 	MbglMapObserver* observer,
@@ -29,6 +28,15 @@ MbglMap* mbgl_map_new(
 	MbglConstrainMode constrainMode,
 	MbglViewportMode viewportMode);
 
+MbglMap* mbgl_map_new_headless(
+	MbglSize size,
+	float pixelRatio,
+	MbglFileSource* source,
+	MbglScheduler* scheduler,
+	MbglMapMode mapMode,
+	MbglConstrainMode constrainMode,
+	MbglViewportMode viewportMode);
+	
 void mbgl_map_destroy(MbglMap* self);
 
 MbglStyle* mbgl_map_get_style(MbglMap* self);

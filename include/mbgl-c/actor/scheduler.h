@@ -5,7 +5,8 @@
 extern "C"{
 #endif
 
-typedef void MbglScheduler;
+struct MbglScheduler;
+typedef struct MbglScheduler MbglScheduler;
 
 #ifdef __cplusplus
 }

@@ -10,6 +10,10 @@ MbglRunLoop* mbgl_run_loop_new() {
 	return reinterpret_cast<MbglRunLoop*>(new util::RunLoop());
 }
 
+void mbgl_run_loop_destroy(MbglRunLoop* self) {
+	delete reinterpret_cast<util::RunLoop*>(self);
+}
+
 #ifdef __cplusplus
 }
 #endif

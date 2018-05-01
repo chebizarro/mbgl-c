@@ -1,2 +1,4 @@
 mason_packages
 build
+.cproject
+.project

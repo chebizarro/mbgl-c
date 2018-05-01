@@ -5,7 +5,7 @@
 extern "C"{
 #endif
 
-struct MbglMapObserver;
+//struct MbglMapObserver;
 typedef struct MbglMapObserver MbglMapObserver;
 
 MbglMapObserver* mbgl_map_observer_null_observer();

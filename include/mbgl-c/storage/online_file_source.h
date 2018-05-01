@@ -1,12 +1,15 @@
 #ifndef __ONLINE_FILE_SOURCE_H
 #define __ONLINE_FILE_SOURCE_H
 
+#include <mbgl-c/storage/file_source.h>
+
 #ifdef __cplusplus
 extern "C"{
 #endif
 
-struct MbglOnlineFileSource;
-typedef struct MbglOnlineFileSource MbglOnlineFileSource;
+//struct MbglOnlineFileSource;
+typedef struct MbglFileSource MbglOnlineFileSource;
+//typedef struct MbglOnlineFileSource MbglOnlineFileSource;
 
 MbglOnlineFileSource* mbgl_online_file_source_new();
 

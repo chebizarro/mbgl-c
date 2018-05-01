@@ -7,8 +7,8 @@
 extern "C"{
 #endif
 
-struct MbglThreadPool;
-typedef struct MbglThreadPool MbglThreadPool;
+//struct MbglThreadPool;
+typedef struct MbglScheduler MbglThreadPool;
 
 MbglThreadPool* mbgl_thread_pool_new(size_t count);
 void mbgl_thread_pool_destroy(MbglThreadPool* self);

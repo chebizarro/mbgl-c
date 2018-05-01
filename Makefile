@@ -49,7 +49,7 @@ else
 endif
 
 .PHONY: default
-default: mbgl-c
+default: mbgl-c render
 
 BUILD_DEPS += Makefile
 BUILD_DEPS += CMakeLists.txt
@@ -76,8 +76,8 @@ $(LINUX_BUILD): $(BUILD_DEPS)
 mbgl-c: $(LINUX_BUILD)
 	$(NINJA) $(NINJA_ARGS) -j$(JOBS) -C $(LINUX_OUTPUT_PATH) mbgl-c
 
-.PHONY: mbgl-render
-mbgl-render: $(LINUX_BUILD)
+.PHONY: render
+render: $(LINUX_BUILD)
 	$(NINJA) $(NINJA_ARGS) -j$(JOBS) -C $(LINUX_OUTPUT_PATH) mbgl-render
 
 endif
