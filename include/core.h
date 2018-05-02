@@ -71,9 +71,9 @@ typedef enum MbglMapDebugOptions {
  * @{
  */
 
-MbglLatLng* mbgl_lat_long_new(double lat, double lon);
+MbglLatLng mbgl_lat_long_new(double lat, double lon);
 
-void mbgl_lat_long_destroy(MbglLatLng* self);
+void mbgl_lat_long_destroy(MbglLatLng self);
 
 /**
  * @}
@@ -105,16 +105,16 @@ MbglPremultipliedImage mbgl_headless_frontend_render(MbglHeadlessFrontend self, 
  * @{
  */
 
-MbglDefaultFileSource* mbgl_default_file_source_new(const char* cache_path, const char* asset_root);
+MbglDefaultFileSource mbgl_default_file_source_new(const char* cache_path, const char* asset_root);
 
-void mbgl_default_file_source_destroy(MbglDefaultFileSource* self);
+void mbgl_default_file_source_destroy(MbglDefaultFileSource self);
 
 
-MbglOnlineFileSource* mbgl_online_file_source_new();
+MbglOnlineFileSource mbgl_online_file_source_new();
 
-void mbgl_online_file_source_set_api_base_url(MbglOnlineFileSource* self, const char* url);
+void mbgl_online_file_source_set_api_base_url(MbglOnlineFileSource self, const char* url);
 
-void mbgl_online_file_source_destroy(MbglOnlineFileSource* self);
+void mbgl_online_file_source_destroy(MbglOnlineFileSource self);
 
 /**
  * @}
@@ -159,9 +159,9 @@ void mbgl_map_set_debug(MbglMap self, MbglMapDebugOptions debugOptions);
  * @{
  */
 
-MbglMapObserver* mbgl_map_observer_null_observer();
+MbglMapObserver mbgl_map_observer_null_observer();
 
-void mbgl_map_observer_destroy(MbglMapObserver* self);
+void mbgl_map_observer_destroy(MbglMapObserver self);
 
 /**
  * @}
@@ -173,9 +173,9 @@ void mbgl_map_observer_destroy(MbglMapObserver* self);
  * @{
  */
 
-MbglThreadPool* mbgl_thread_pool_new(size_t count);
+MbglThreadPool mbgl_thread_pool_new(size_t count);
 
-void mbgl_thread_pool_destroy(MbglThreadPool* self);
+void mbgl_thread_pool_destroy(MbglThreadPool self);
 
 /**
  * @}
@@ -187,7 +187,7 @@ void mbgl_thread_pool_destroy(MbglThreadPool* self);
  * @{
  */
 
-const char* mbgl_encode_png(MbglPremultipliedImage* image);
+const char* mbgl_encode_png(MbglPremultipliedImage image);
 
 /**
  * @}
@@ -199,9 +199,9 @@ const char* mbgl_encode_png(MbglPremultipliedImage* image);
  * @{
  */
 
-MbglRunLoop* mbgl_run_loop_new();
+MbglRunLoop mbgl_run_loop_new();
 
-void mbgl_run_loop_destroy(MbglRunLoop* self);
+void mbgl_run_loop_destroy(MbglRunLoop self);
 
 /**
  * @}
