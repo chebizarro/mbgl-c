@@ -1,5 +1,5 @@
 add_library(mbgl-c STATIC
-    ${MBGLC_CORE_FILES}
+    src/core.cpp
 )
 
 target_include_directories(mbgl-c
