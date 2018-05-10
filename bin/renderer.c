@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
 		
 	MbglThreadPool *threadPool = mbgl_thread_pool_new(4);
 	
-	MbglSize size = { 1024, 1024 };
+	MbglSize size = { 512, 512 };
 		
 	MbglHeadlessFrontend *frontend = mbgl_headless_frontend_new(size, 1, fileSource, threadPool);
 		
